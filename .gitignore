@@ -1,2 +1,26 @@
 # Local Netlify folder
 .netlify
+
+# Node.js dependencies
+node_modules
+
+# Build output
+dist
+build
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+### [state.json](file:///Users/imad/Desktop/ProjetTahiri/.netlify/state.json)
+
+Aucune modification nécessaire pour ce fichier.
+
+En suivant ces étapes, votre site devrait fonctionner correctement et être accessible dans Google Chrome. Si le problème persiste, veuillez fournir plus de détails sur les erreurs que vous rencontrez.

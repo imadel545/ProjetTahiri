@@ -160,6 +160,13 @@ nav a.active {
   z-index: 1000;
   animation: fadeIn 0.5s ease;
 }
+
+.error-message {
+  display: none;
+  color: red;
+  margin-top: 10px;
+}
+
 .contact form {
   background: linear-gradient(145deg, #ffffff, #e0e0e0);
   border: 1px solid #ccc;

@@ -1,0 +1,30 @@
+Pour que les modifications apparaissent en ligne, vous devez déployer votre site web sur un serveur de production. Voici les étapes générales pour déployer votre site :
+
+1. **Préparer les fichiers** : Assurez-vous que tous les fichiers nécessaires sont prêts et correctement configurés.
+
+2. **Choisir un service d'hébergement** : Vous pouvez utiliser des services comme Netlify, Vercel, GitHub Pages, ou un hébergement traditionnel comme un serveur VPS.
+
+3. **Déployer le site** :
+   - **Netlify** : Connectez votre dépôt GitHub à Netlify et configurez les paramètres de déploiement.
+   - **Vercel** : Connectez votre dépôt GitHub à Vercel et suivez les instructions pour déployer.
+   - **GitHub Pages** : Poussez votre code sur la branche `gh-pages` de votre dépôt GitHub.
+   - **Hébergement traditionnel** : Utilisez FTP/SFTP pour transférer vos fichiers sur le serveur.
+
+4. **Configurer le domaine** : Si vous avez un nom de domaine personnalisé, configurez les enregistrements DNS pour pointer vers votre service d'hébergement.
+
+5. **Vérifier le déploiement** : Accédez à votre site en ligne pour vérifier que tout fonctionne correctement.
+
+6. **Vérifiez les configurations de Netlify** : Assurez-vous que votre fichier `netlify.toml` est correctement configuré pour le déploiement. Voici un exemple de configuration :
+
+### netlify.toml
+
+Créer un fichier `netlify.toml` à la racine de votre projet pour configurer Netlify.
+
+[build]
+  publish = "dist"
+  command = "npm run build"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
