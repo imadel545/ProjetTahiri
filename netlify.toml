@@ -21,7 +21,7 @@ Pour que les modifications apparaissent en ligne, vous devez déployer votre sit
 Créer un fichier `netlify.toml` à la racine de votre projet pour configurer Netlify.
 
 [build]
-  publish = "dist"
+  publish = "public"
   command = "npm run build"
 
 [[redirects]]
