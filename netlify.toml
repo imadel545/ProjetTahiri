@@ -1,24 +1,51 @@
-Pour que les modifications apparaissent en ligne, vous devez déployer votre site web sur un serveur de production. Voici les étapes générales pour déployer votre site :
+Pour mettre à jour votre projet en ligne, suivez ces étapes :
 
-1. **Préparer les fichiers** : Assurez-vous que tous les fichiers nécessaires sont prêts et correctement configurés.
+### 1. Préparer les fichiers
 
-2. **Choisir un service d'hébergement** : Vous pouvez utiliser des services comme Netlify, Vercel, GitHub Pages, ou un hébergement traditionnel comme un serveur VPS.
+Assurez-vous que tous les fichiers nécessaires sont prêts et correctement configurés. Vous avez déjà mis à jour vos fichiers `index.html`, `styles.css`, `script.js`, et `netlify.toml`.
 
-3. **Déployer le site** :
-   - **Netlify** : Connectez votre dépôt GitHub à Netlify et configurez les paramètres de déploiement.
-   - **Vercel** : Connectez votre dépôt GitHub à Vercel et suivez les instructions pour déployer.
-   - **GitHub Pages** : Poussez votre code sur la branche `gh-pages` de votre dépôt GitHub.
-   - **Hébergement traditionnel** : Utilisez FTP/SFTP pour transférer vos fichiers sur le serveur.
+### 2. Choisir un service d'hébergement
 
-4. **Configurer le domaine** : Si vous avez un nom de domaine personnalisé, configurez les enregistrements DNS pour pointer vers votre service d'hébergement.
+Vous pouvez utiliser des services comme Netlify, Vercel, GitHub Pages, ou un hébergement traditionnel comme un serveur VPS.
 
-5. **Vérifier le déploiement** : Accédez à votre site en ligne pour vérifier que tout fonctionne correctement.
+### 3. Déployer le site
 
-6. **Vérifiez les configurations de Netlify** : Assurez-vous que votre fichier `netlify.toml` est correctement configuré pour le déploiement. Voici un exemple de configuration :
+#### Utiliser Netlify
 
-### netlify.toml
+1. **Connectez votre dépôt GitHub à Netlify** :
+   - Allez sur [Netlify](https://www.netlify.com/).
+   - Connectez-vous ou créez un compte.
+   - Cliquez sur "New site from Git" et connectez votre dépôt GitHub.
+   - Sélectionnez le dépôt de votre projet.
 
-Créer un fichier `netlify.toml` à la racine de votre projet pour configurer Netlify.
+2. **Configurer les paramètres de déploiement** :
+   - Dans les paramètres de déploiement, assurez-vous que le répertoire de publication est `public` et la commande de build est `npm run build`.
+
+3. **Créer un fichier `netlify.toml`** :
+   - Assurez-vous que le fichier `netlify.toml` est à la racine de votre projet avec le contenu suivant :
+
+[build]
+  publish = "public"
+  command = "npm run build"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+### Vérification finale
+
+1. **Vérifiez les fichiers de configuration** :
+   - Assurez-vous que le fichier `netlify.toml` est correctement configuré.
+   - Vérifiez que tous les fichiers nécessaires sont présents et correctement configurés (`index.html`, `styles.css`, `script.js`, etc.).
+
+2. **Déployer le site** :
+   - Si vous utilisez Netlify, assurez-vous que votre dépôt GitHub est bien connecté et que les paramètres de déploiement sont corrects.
+   - Si vous utilisez un autre service d'hébergement (Vercel, GitHub Pages, etc.), suivez les instructions spécifiques à ce service pour déployer votre site.
+
+### Exemple de configuration pour Netlify
+
+Assurez-vous que votre fichier `netlify.toml` est à la racine de votre projet avec le contenu suivant :
 
 [build]
   publish = "public"

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tahiri-Votre restaurant Moderne</title>
+    <title>Tahiri - Votre restaurant Moderne</title>
     <meta
       name="description"
       content="Bienvenue chez Tahiri, votre restaurant moderne offrant des plats délicieux et un service exceptionnel. Situé à Maarif et Belvédère dans la ville de Casablanca."
@@ -13,7 +13,6 @@
       content="Tahiri, restaurant, plats délicieux, service exceptionnel, cuisine moderne, Maarif, Belvédère, Casablanca"
     />
     <meta name="author" content="Tahiri Restaurant" />
-    <meta name="robots" content="index, follow" />
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
@@ -23,44 +22,44 @@
     <script src="script.js" defer></script>
   </head>
   <body>
-    <header role="banner">
+    <header>
       <img
         src="https://via.placeholder.com/150x60?text=Tahiri"
         alt="Logo Tahiri"
       />
       <h1>Bienvenue chez Tahiri</h1>
     </header>
-    <nav role="navigation">
+    <nav>
       <a href="#about" class="active">À propos</a>
       <a href="#menu">Menu</a>
       <a href="#locations">Emplacements</a>
       <a href="#contact">Contact</a>
     </nav>
     <main>
-      <section class="hero" role="region" aria-labelledby="hero-heading">
-        <h2 id="hero-heading">
-          Des Plats Délicieux et Un Service Exceptionnel
-        </h2>
+      <!-- Section À propos -->
+      <section id="about" class="section about dark-background">
+        <div class="about-content">
+          <h2>À propos de nous</h2>
+          <p>
+            Chez Tahiri, nous sommes dédiés à offrir des plats délicieux et un
+            service exceptionnel. Situé à Maarif et Belvédère dans la ville de
+            Casablanca, nous vous accueillons dans une ambiance chaleureuse et
+            conviviale.
+          </p>
+          <img
+            src="images/profil.jpg"
+            alt="Image de l'intérieur du restaurant"
+            class="about-image"
+          />
+        </div>
       </section>
-      <section
-        class="section about"
-        id="about"
-        role="region"
-        aria-labelledby="about-heading"
-      >
-        <h2 id="about-heading">À propos de nous</h2>
-        <p>
-          Chez Tahiri, nous sommes dédiés à offrir des plats délicieux et un
-          service exceptionnel. Situé à Maarif et Belvédère dans la ville de
-          Casablanca, nous vous accueillons dans une ambiance chaleureuse et
-          conviviale.
-        </p>
-      </section>
-      <section class="section menu" id="menu">
+
+      <!-- Section Menu -->
+      <section id="menu" class="section menu">
         <h2>Notre Menu</h2>
         <div class="menu-item">
-          <h3>jus</h3>
-          <img src="images/jus.jpg" alt="Image de jus" class="menu-image" />
+          <h3>Jus</h3>
+          <img src="images/jus.jpg" alt="Image de jus" />
           <p>
             Un jus frais et naturel, préparé avec les meilleurs fruits de saison
             pour une saveur exceptionnelle.
@@ -68,30 +67,24 @@
         </div>
         <div class="menu-item">
           <h3>Plat 2</h3>
-          <img
-            src="images/plat2.avif"
-            alt="Image de Plat 2"
-            class="menu-image"
-          />
+          <img src="images/plat2.avif" alt="Image de Plat 2" />
           <p>
             Un plat savoureux composé d'ingrédients frais et locaux, cuisiné
             avec soin pour offrir une expérience culinaire inoubliable.
           </p>
         </div>
         <div class="menu-item">
-          <h3>Plat chicken</h3>
-          <img
-            src="images/platc.jpg"
-            alt="Image de Plat c"
-            class="menu-image"
-          />
+          <h3>Plat Chicken</h3>
+          <img src="images/platc.jpg" alt="Image de Plat Chicken" />
           <p>
             Un délicieux plat de poulet, préparé avec des épices exotiques et
             des ingrédients de qualité pour une dégustation mémorable.
           </p>
         </div>
       </section>
-      <section class="section locations" id="locations">
+
+      <!-- Section Emplacements -->
+      <section id="locations" class="section locations">
         <h2>Nos Emplacements</h2>
         <div class="location">
           <h3>Maarif</h3>
@@ -102,35 +95,63 @@
           <p>Adresse: Rue Belvédère, Casablanca</p>
         </div>
       </section>
-      <section class="section contact" id="contact">
+
+      <!-- Section Contact -->
+      <section id="contact" class="section contact">
         <h2>Contactez-nous</h2>
         <form id="contact-form">
-          <input type="text" id="name" placeholder="Votre nom" required />
-          <input type="email" id="email" placeholder="Votre email" required />
-          <textarea
-            id="message"
-            rows="5"
-            placeholder="Votre message"
-            required
-          ></textarea>
+          <div class="form-group">
+            <label for="name">Nom</label>
+            <input
+              type="text"
+              id="name"
+              placeholder="Votre nom"
+              required
+              aria-label="Votre nom"
+            />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="Votre email"
+              required
+              aria-label="Votre email"
+            />
+          </div>
+          <div class="form-group">
+            <label for="phone">Téléphone</label>
+            <input
+              type="text"
+              id="phone"
+              placeholder="Votre téléphone"
+              required
+              aria-label="Votre téléphone"
+            />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea
+              id="message"
+              rows="5"
+              placeholder="Votre message"
+              required
+              aria-label="Votre message"
+            ></textarea>
+          </div>
           <button type="submit" class="btn-3d">Envoyer</button>
         </form>
         <div id="error" class="error-message">
           Une erreur est survenue. Veuillez réessayer.
         </div>
-        <div id="confirmation">
+        <div id="confirmation" class="success-message">
           Merci, votre message a été envoyé avec succès !
         </div>
       </section>
     </main>
     <footer>
       <p>&copy; 2024 Tahiri. Tous droits réservés.</p>
-      <nav aria-label="Footer navigation">
-        <a href="#about">À propos</a>
-        <a href="#menu">Menu</a>
-        <a href="#locations">Emplacements</a>
-        <a href="#contact">Contact</a>
-      </nav>
     </footer>
   </body>
 </html>

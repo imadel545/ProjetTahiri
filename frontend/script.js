@@ -4,31 +4,47 @@ document.addEventListener("DOMContentLoaded", () => {
   const errorMessage = document.getElementById("error");
 
   if (!form) {
-    console.error("Form element not found");
+    console.error("Formulaire introuvable.");
     return;
   }
 
+  // Cacher les messages au chargement de la page
+  confirmationMessage.style.display = "none";
+  errorMessage.style.display = "none";
+
+  // Gestionnaire d'événement pour le formulaire
   form.addEventListener("submit", async (event) => {
     event.preventDefault(); // Empêche le rechargement de la page
 
     // Récupère les valeurs des champs
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const message = document.getElementById("message").value;
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const message = document.getElementById("message").value.trim();
 
-    console.log("Form submitted", { name, email, message });
+    // Validation des champs requis
+    if (!name || !email || !message) {
+      errorMessage.textContent = "Tous les champs requis doivent être remplis.";
+      errorMessage.style.display = "block";
+      confirmationMessage.style.display = "none";
+      return;
+    }
+
+    console.log("Envoi des données :", { name, email, phone, message });
 
     try {
-      const response = await fetch("/contact", {
+      const response = await fetch("http://localhost:3000/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ name, email, message }),
+        body: JSON.stringify({ name, email, phone, message }),
       });
 
       if (response.ok) {
         // Affiche le message de confirmation
+        confirmationMessage.textContent =
+          "Votre message a été envoyé avec succès !";
         confirmationMessage.style.display = "block";
         errorMessage.style.display = "none";
         form.reset();
@@ -38,32 +54,20 @@ document.addEventListener("DOMContentLoaded", () => {
           confirmationMessage.style.display = "none";
         }, 3000);
       } else {
-        throw new Error("Erreur lors de l'envoi des données.");
+        const errorData = await response.json();
+        console.error("Erreur serveur :", errorData);
+        errorMessage.textContent =
+          errorData.message || "Une erreur est survenue. Veuillez réessayer.";
+        errorMessage.style.display = "block";
+        confirmationMessage.style.display = "none";
       }
     } catch (error) {
-      console.error("Error submitting form", error);
-      // Affiche le message d'erreur
+      console.error("Erreur réseau :", error);
+      errorMessage.textContent =
+        "Une erreur est survenue. Veuillez vérifier votre connexion.";
       errorMessage.style.display = "block";
       confirmationMessage.style.display = "none";
     }
-  });
-
-  // Bouton de retour en haut de page
-  const backToTopButton = document.createElement("button");
-  backToTopButton.classList.add("back-to-top");
-  backToTopButton.innerHTML = "↑";
-  document.body.appendChild(backToTopButton);
-
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 300) {
-      backToTopButton.style.display = "block";
-    } else {
-      backToTopButton.style.display = "none";
-    }
-  });
-
-  backToTopButton.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
   });
 
   // Gestion des liens actifs dans la barre de navigation
